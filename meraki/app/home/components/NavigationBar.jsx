@@ -8,16 +8,16 @@ import { TfiAlignJustify, TfiClose } from 'react-icons/tfi';
 
 const links = [{
   label: 'About Us',
-  route: '#about-us'
+  route: '/#about-us'
 }, {
   label: 'Meraki Examples',
-  route: '#examples'
+  route: '/#examples'
 }, {
   label: 'Plans',
-  route: '#plans'
+  route: '/#plans'
 }, {
   label: 'Contact',
-  route: '#contact'
+  route: '/#contact'
 }]
 
 export default function NavigationBar() {

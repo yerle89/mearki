@@ -27,9 +27,6 @@ export default function HomePage () {
       <section className='bg-[#2B2B2B] sm:px-16 px-8 sm:py-16 py-6 '>
         <Contact />
       </section>
-      <section className='bg-[#2B2B2B] border border-[#2B2B2B] border-t-white sm:px-16 px-8 sm:py-10 py-6 pb-10'>
-        <Footer />
-      </section>
     </main>
   )
 }

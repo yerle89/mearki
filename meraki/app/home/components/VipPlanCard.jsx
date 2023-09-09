@@ -24,19 +24,19 @@ export default function VipPlanCard({ backgroundColor}) {
             <br />
           </p>
           <div className='flex justify-between items-start'>
-            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width={24} height={24} />
+            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width='auto' height='auto' />
             <p className='text-sm xl:text-base'>
               Tarjetas ilimitadas
             </p>
           </div>
           <div className='flex justify-start items-start'>
-            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width={24} height={24} />
+            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width='auto' height='auto' />
             <p className='text-sm xl:text-base'>
               Sube tu propio fondo
             </p>
           </div>
           <div className='flex justify-start items-start'>
-            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width={24} height={24} />
+            <Image className='xl:mr-8 mr-2' src={checkImage} alt='check' width='auto' height='auto' />
             <p className='text-sm xl:text-base'>
               Cambia de plan en cualquier <br/> momento
             </p>
