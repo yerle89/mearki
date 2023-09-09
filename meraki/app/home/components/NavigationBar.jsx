@@ -74,12 +74,12 @@ export default function NavigationBar() {
                 </li>
               ))}
               <li className='py-2 w-40'>
-                <Link href='/signin' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black '>
+                <Link href='/signin' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
                   <span className='text-center w-full'>Sign In</span>
                 </Link>
               </li>
               <li className='py-2 w-40'>
-                <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black '>
+                <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
                   <span className='text-center w-full'>Login</span>
                 </Link>
               </li>

@@ -60,7 +60,7 @@ export default function VipPlanButton() {
       </div>
 
       <button
-      className='mt-5 mb-3 bg-[#2B2B2B] text-white w-28 h-10 rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black text-sm'>
+      className='mt-5 mb-3 bg-[#2B2B2B] text-white w-28 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black text-sm'>
         EMPEZAR
       </button>
 

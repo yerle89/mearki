@@ -90,7 +90,7 @@ export default function Contact() {
           </div>
           <div className='flex justify-center'>
             <button className="bg-[#F9F8F5] w-28 h-10 rounded-full
-              text-sm" 
+              text-sm duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black" 
               type="submit">
               ENVIAR
             </button>
