@@ -1,46 +1,41 @@
 "use client"
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import image from "../assets/images/register-image.png";
 
 export default function page() {
 
+  const router = useRouter();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
   const [email, setEmail] = useState('');
   const [termsAndConditions, setTermsAndConditions] = useState(false);
-  const [passwordFormValid, setPasswordFormValid] = useState(false);
-  const [termsAndConditionsFormValid, setTermsAndConditionsFormValidFormValid] = useState(false);
+  // const [passwordFormValid, setPasswordFormValid] = useState(false);
+  // const [termsAndConditionsFormValid, setTermsAndConditionsFormValidFormValid] = useState(false);
 
   const checkPasswordFormValidity = () => {
-    if ( password.trim() === passwordAgain.trim() ) {
-      setPasswordFormValid(true);
-    } else {
-      setPasswordFormValid(false);
-    }
+    return password.trim() === passwordAgain.trim() ? true : false;
   };
 
   const checkTermsAndConditionsFormValidity = () => {
-    if (termsAndConditions) {
-      setTermsAndConditionsFormValidFormValid(true);
-    } else {
-      setTermsAndConditionsFormValidFormValid(false);
-    }
+    return termsAndConditions ? true : false;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkPasswordFormValidity();
-    checkTermsAndConditionsFormValidity();
-    console.log('ACA', passwordFormValid)
-    console.log('ACA1', termsAndConditionsFormValid)
-    if (passwordFormValid && termsAndConditionsFormValid) {
+    const passwordFormValid = checkPasswordFormValidity();
+    const termsAndConditionsFormValid = checkTermsAndConditionsFormValidity();
+    if (passwordFormValid === true && termsAndConditionsFormValid === true) {
       setUser('');
       setEmail('');
       setPassword('');
       setPasswordAgain('');
       setTermsAndConditions(false);
+      const datos = { campo1: 'valor1', campo2: 'valor2' };
+      // router.push(`/signin/${user}/${email}`);
+      
     }
   };
 
@@ -126,8 +121,9 @@ export default function page() {
                 </label>
               </div>
               <div className='flex justify-center mt-5'>
-                <button className="border-white border w-40 h-10 bg-[#2B2B2B] text-white rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black
+                <button className="disabled:opacity-40 border-white border w-40 h-10 bg-[#2B2B2B] text-white rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black
                   text-sm" 
+                  // disabled={(!user || !email || !password || !passwordAgain) || (password !== passwordAgain)}
                   type="submit">
                   REGISTRARSE
                 </button>

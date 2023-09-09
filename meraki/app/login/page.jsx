@@ -8,19 +8,15 @@ export default function page() {
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [formValid, setFormValid] = useState(false);
+  // const [formValid, setFormValid] = useState(false);
 
   const checkFormValidity = () => {
-    if (user.trim() !== '' && password.trim() !== '') {
-      setFormValid(true);
-    } else {
-      setFormValid(false);
-    }
+    return user.trim() !== '' && password.trim() !== '' ? true : false;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkFormValidity();
+    const formValid = checkFormValidity();
     if (formValid) {
       setUser('');
       setPassword('');
