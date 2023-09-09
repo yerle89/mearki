@@ -58,34 +58,40 @@ export default function NavigationBar() {
             <TfiAlignJustify onClick={toggleMenu} className=' inline-flex xl:hidden text-2xl cursor-pointer'/>
           </div>
         </div>
-        <div className={menuOpen ? 'fixed top-20 left-0 w-fit xl:hidden h-screen bg-white p-10 ease-in-out duration-300' : 'fixed left-[-100%] h-screen top-20 p-10 ease-in-out duration-300'}>
-          <div className='flex w-full items-center justify-end'>
-            <div className='cursor-pointer'>
-              <TfiClose onClick={toggleMenu} className='text-xl'/>
+        <div className={menuOpen ? 
+          'fixed top-20 left-60 w-full xl:hidden h-screen p-10 ease-in-out duration-300' : 
+          'fixed left-[-100%] h-screen top-20 p-10 ease-in-out duration-300'}
+          onClick={toggleMenu}
+          >
             </div>
-          </div>
-          <div className='flex-col py-4'>
-            <ul className='items-center uppercase'> 
-              {links.map(({ label, route }) => (
-                <li className='py-2 hover:underline hover:decoration-black cursor-pointer w-fit' key={route}>
-                  <Link href={route}>
-                    {label}
+          <div className={menuOpen ? 'fixed top-20 left-0 w-60 xl:hidden h-screen bg-white p-10 ease-in-out duration-300' : 'fixed left-[-100%] h-screen top-20 p-10 ease-in-out duration-300'}>
+            <div className='flex w-full items-center justify-end'>
+              <div className='cursor-pointer'>
+                <TfiClose onClick={toggleMenu} className='text-xl'/>
+              </div>
+            </div>
+            <div className='flex-col py-4'>
+              <ul className='items-center uppercase'> 
+                {links.map(({ label, route }) => (
+                  <li className='py-2 hover:underline hover:decoration-black cursor-pointer w-fit' key={route}>
+                    <Link href={route}>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                <li className='py-2 w-40'>
+                  <Link href='/signin' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
+                    <span className='text-center w-full'>Sign In</span>
                   </Link>
                 </li>
-              ))}
-              <li className='py-2 w-40'>
-                <Link href='/signin' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
-                  <span className='text-center w-full'>Sign In</span>
-                </Link>
-              </li>
-              <li className='py-2 w-40'>
-                <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
-                  <span className='text-center w-full'>Login</span>
-                </Link>
-              </li>
-            </ul>
-            
-          </div>
+                <li className='py-2 w-40'>
+                  <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
+                    <span className='text-center w-full'>Login</span>
+                  </Link>
+                </li>
+              </ul>
+              
+            </div>
         </div>
         
       </nav>
