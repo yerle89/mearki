@@ -78,7 +78,7 @@ export default function page() {
                 </Link>
               </div>
               <div className='flex justify-center mt-5'>
-                <button className="border-white border w-40 h-10 bg-[#2B2B2B] text-white rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black
+                <button className="border-white border w-40 h-10 bg-[#2B2B2B] text-white rounded-full duration-300 active:bg-[#8b8b8b] active:text-black sm:hover:bg-[#8b8b8b] sm:hover:text-black
                   text-sm" 
                   type="submit">
                   INICIAR SESIóN
