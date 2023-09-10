@@ -2,14 +2,8 @@
 import Image from 'next/image';
 import React from 'react'
 import image from "../../../assets/images/register-image.png";
-import { useRouter } from 'next/navigation';
 
 export default function page() {
-
-  const router = useRouter()
-  const { campo1, campo2 } = router.query;
-
-  console.log('MARTIN', campo1);
 
   return (
     <main className='max-container'>
@@ -29,11 +23,9 @@ export default function page() {
               CONFIRMA TU EMAIL
             </h2>
             <h1>
-            
             </h1>
           </div>
           <div>
-
           </div>
         </div>
       </section>

@@ -1,4 +1,6 @@
 "use client"
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -33,7 +35,7 @@ export default function page() {
       setPassword('');
       setPasswordAgain('');
       setTermsAndConditions(false);
-      const datos = { campo1: 'valor1', campo2: 'valor2' };
+      createUserWithEmailAndPassword(auth, email, password);
       // router.push(`/signin/${user}/${email}`);
       
     }

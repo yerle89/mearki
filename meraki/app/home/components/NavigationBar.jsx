@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import logo from "../../assets/images/meraki.svg";
 import { TfiAlignJustify, TfiClose } from 'react-icons/tfi';
+import { signOut, useSession } from 'next-auth/react';
 
 
 const links = [{
@@ -21,6 +22,8 @@ const links = [{
 }]
 
 export default function NavigationBar() {
+
+  const session = useSession();
   const [menuOpen,setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -29,30 +32,45 @@ export default function NavigationBar() {
       <nav className='flex justify-between items-center w-[90%] max-container h-12'>
         <div className='flex items-center gap-2'>
           <Link href='/'>
-            <Image className='w-32 md:w-32 cursor-pointer ' src={logo} alt='logo' />
+            <Image className='w-32 md:w-32 cursor-pointer ' src={logo} alt='logo' width='auto' height='auto' />
           </Link>
         </div>
         <div className='md:static absolute md:min-h-fit min-h-[60vh] left-[-100%] top[-100%] sm:top-0 md:w-auto w-full flex items-center px-5'>
           <ul className='hidden xl:inline-flex items-center lg:text-base md:text-sm gap-8 uppercase'> 
             {links.map(({ label, route }) => (
-              <li onClick={() => setMenuOpen(false)} key={route}>
+              (false ) ? (<> </>)
+              : (<li onClick={() => setMenuOpen(false)} key={route} className='items-center text-center'>
                 <Link className='hover:text-blue-600 duration-300 cursor-pointer' href={route}>
                   {label}
                 </Link>
-              </li>
+              </li>)
             ))}
+            {(!session?.data ) ? (<> </>)
+              : (<li onClick={() => setMenuOpen(false)} key='/dashboard'>
+                <Link className='hover:text-blue-600 duration-300 cursor-pointer' href='/dashboard'>
+                  Dashboard
+                </Link>
+              </li>)}
           </ul>
         </div>
         <div className='flex items-center gap-6'>
           <Link className='hover:text-blue-600 duration-300 cursor-pointer' href='/'>
             ES/EN
           </Link>
+          {(!session?.data ) ? (<>
           <Link href='/signin' className='hidden xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black'>
-            <span className='text-center w-full'>Sign In</span>
+            <span className='text-center w-full'>REGISTRARSE</span>
           </Link>
           <Link href='/login' className='hidden xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-300 hover:bg-[#8b8b8b] hover:text-black '>
-            <span className='text-center w-full'>Login</span>
-          </Link>
+            <span className='text-center w-full'>INICIAR SESION</span>
+          </Link> </>)
+          : (
+            <button
+              className='hidden xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'
+              onClick={() => signOut()}>
+                CERRAR SESION
+            </button>
+          )}
           {/* Mobile Menu */ }
           <div className='xl:hidden'>
             <TfiAlignJustify onClick={toggleMenu} className=' inline-flex xl:hidden text-2xl cursor-pointer'/>
@@ -79,16 +97,32 @@ export default function NavigationBar() {
                     </Link>
                   </li>
                 ))}
+                {(!session?.data ) ? (<> </>)
+                  : (<li key='/dashboard' className='py-2 hover:underline hover:decoration-black cursor-pointer w-fit'>
+                    <Link className='hover:text-blue-600 duration-300 cursor-pointer' href='/dashboard'>
+                      Dashboard
+                    </Link>
+                  </li>)}
+                {(!session?.data ) ? (<>
                 <li className='py-2 w-40'>
                   <Link href='/signin' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
-                    <span className='text-center w-full'>Sign In</span>
+                    <span className='text-center w-full'>REGISTRARSE</span>
                   </Link>
                 </li>
                 <li className='py-2 w-40'>
                   <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
-                    <span className='text-center w-full'>Login</span>
+                    <span className='text-center w-full'>INICIAR SESION</span>
                   </Link>
-                </li>
+                </li></>)
+                : (
+                  <li className='py-2 w-40'>
+                    <button
+                      className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'
+                      onClick={() => signOut()}>
+                        CERRAR SESION
+                    </button>
+                  </li>
+                )}
               </ul>
               
             </div>

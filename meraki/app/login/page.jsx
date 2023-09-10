@@ -1,26 +1,27 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 import React, { useState } from 'react';
 import image from "../assets/images/login-image.png";
 
 export default function page() {
 
-  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // const [formValid, setFormValid] = useState(false);
 
   const checkFormValidity = () => {
-    return user.trim() !== '' && password.trim() !== '' ? true : false;
+    return email.trim() !== '' && password.trim() !== '' ? true : false;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formValid = checkFormValidity();
     if (formValid) {
-      setUser('');
+      setEmail('');
       setPassword('');
-
+      signIn('credentials', {email, password, redirect: true, callbackUrl: '/dashboard'});
     }
   };
 
@@ -44,15 +45,15 @@ export default function page() {
             <form  className="flex flex-col gap-5 pt-10 items-center" onSubmit={handleSubmit}>
               <div className="flex gap-8">
                 <input
-                  id='user'
+                  id='email'
                   className="border border-[#2B2B2B] rounded-full
                   h-10 w-full sm:h-14 sm:w-64 text-sm sm:text-base
                   px-3 placeholder:text-[#2B2B2B] placeholder:text-opacity-70"
                   type="text"
-                  placeholder="Usuario"
+                  placeholder="Email"
                   required
-                  value={user}
-                  onChange={(e) => setUser(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="flex gap-8">

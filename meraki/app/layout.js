@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import NavigationBar from './home/components/NavigationBar'
 import Banner from './home/components/Banner'
 import Footer from './home/Footer'
+import SessionProvider from './SessionProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
       <head>
       </head>
       <body className="flex flex-col min-h-screen overflow-y-scroll">
-        <NavigationBar />
+        <SessionProvider>
+          <NavigationBar />
+        </SessionProvider>
         <Banner />
-        {children}
+          {children}
         <div className='mt-auto'>
           <Footer />
         </div>
