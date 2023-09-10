@@ -71,9 +71,9 @@ export default function page() {
         </div>
         <div className='py-10'>
           <button
-            className=' bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'
+            className='items-center bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'
             onClick={() => signOut()}>
-              CERRAR SESION
+              <span className='text-center w-full text-sm'>CERRAR SESION</span>
           </button>
         </div>
       </div>
