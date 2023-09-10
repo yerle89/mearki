@@ -114,14 +114,12 @@ export default function NavigationBar() {
                     <span className='text-center w-full'>INICIAR SESION</span>
                   </Link>
                 </li></>)
-                : (
-                  <li className='py-2 w-40'>
-                    <button
-                      className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'
-                      onClick={() => signOut()}>
-                        <span className='text-center w-full'>CERRAR SESION</span>
-                    </button>
-                  </li>
+                : (<>
+                  <li className='py-2 w-40 onClick={() => signOut()}'>
+                    <Link href='/login' className='flex xl:inline-flex bg-[#2B2B2B] text-white px-5 py-2 w-40 h-10 rounded-full duration-100 sm:hover:bg-[#8b8b8b] sm:hover:text-black active:bg-[#8b8b8b] active:text-black'>
+                      <span className='text-center w-full'>CERRAR SESION</span>
+                    </Link>
+                  </li></>
                 )}
               </ul>
               
